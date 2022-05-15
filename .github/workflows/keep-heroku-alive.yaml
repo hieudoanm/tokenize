@@ -1,0 +1,21 @@
+name: Keep Heroku Alive
+
+on:
+  # push:
+  #   branches: [master]
+  schedule:
+    - cron: '*/20 * * * *'
+
+jobs:
+  github-actions:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        # node-version: [16.x, 14.x, 12.x]
+        # os: [ubuntu-latest, macos-latest, windows-latest]
+        node-version: [16.x]
+        os: [ubuntu-latest]
+    name: Node.js ${{ matrix.node-version }} ${{ matrix.os }}
+    steps:
+      - name: Keep Heroku Alive
+        run: curl -v https://tokenize-socket.herokuapp.com/
