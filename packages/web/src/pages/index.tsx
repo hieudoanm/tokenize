@@ -50,8 +50,12 @@ const HomePage: NextPage<HomePageProps> = ({ orderbook: { ask, bid } }) => {
 };
 
 export const getStaticProps = async () => {
-  const orderbook = await axiosGet<OrderbookType>(`${API}/api/book`);
-  return { props: { orderbook } };
+  try {
+    const orderbook = await axiosGet<OrderbookType>(`${API}/api/book`);
+    return { props: { orderbook } };
+  } catch (error) {
+    return { props: { orderbook: {} } };
+  }
 };
 
 export default HomePage;

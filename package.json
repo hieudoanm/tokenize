@@ -13,6 +13,9 @@
     "yarn": "1"
   },
   "scripts": {
+    "build:server": "yarn workspace server build",
+    "build:web": "yarn workspace web build",
+    "build": "yarn build:server && yarn build:web",
     "dev:server": "yarn workspace server dev",
     "dev:web": "yarn workspace web dev",
     "dev": "concurrently --kill-others-on-fail \"yarn dev:server\"  \"yarn dev:web\"",
