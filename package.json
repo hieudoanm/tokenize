@@ -7,6 +7,11 @@
   "author": "hieudoanm <hieumdoan@gmail.com>",
   "license": "MIT",
   "private": true,
+  "engines": {
+    "node": ">= 14",
+    "npm": ">= 8",
+    "yarn": "1"
+  },
   "scripts": {
     "dev:server": "yarn workspace server dev",
     "dev:web": "yarn workspace web dev",
